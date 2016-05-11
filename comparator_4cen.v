@@ -1,0 +1,23 @@
+`timescale 1ns / 100ps
+
+module comparator_4cen_16bit(arg, c, a_00, a_01, a_10, a_11)
+  output [1:0] arg;
+  output [15:0] c;
+  input [15:0] a_00;
+  input [15:0] a_01;
+  input [15:0] a_10;
+  input [15:0] a_11;
+  
+  wire [15:0] b_0;
+  wire [15:0] b_1;
+  wire index_0;
+  wire index_1;
+  wire index;
+  
+  assign arg[1] = index;
+  
+  comparator_2cen_16bit compare_a_0x(.b(b_0), .index(index_0), .a_0(a_00), .a_1(a_01));
+  comparator_2cen_16bit compare_a_1x(.b(b_1), .index(index_1), .a_0(a_10), .a_1(a_11));
+  comparator_2cen_16bit compare_b_x(.b(c), .index(index), .a_0(b_0), .a_1(b_1));
+  selector_2cen_1bit select_index_x(.out(arg[0]), .in_0(index_0), .in_1(index_1), .sel(index));
+endmodule
