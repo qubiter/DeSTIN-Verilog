@@ -1,5 +1,6 @@
 # DeSTIN-Verilog
 The Verilog DesCription of DeSTIN Algorithm
+
 author: Pei Zeng, Physics Department of Nanjing University
 
 The Deep SpatioTemporal Inference Netwrok(DeSTIN) Algorithm is a kind of deep learning method inspired by the thought of DBN(Deep Belief Network) and Online K-means Clustering algorithm. It specifically aims to be applied on the SpatioTemporal Pattern Recognition Problem.
