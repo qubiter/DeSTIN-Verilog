@@ -1,0 +1,106 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dE:/DeSTIN/160424_VerilogTrial
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+vcordic_div_smaller
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+31
+Z2 IB<50AZJD9ZRn_3D>IPmnc0
+Z3 dE:/DeSTIN/160424_VerilogTrial
+Z4 w1463397068
+Z5 8E:/DeSTIN/160424_VerilogTrial/cordic_div_small.v
+Z6 FE:/DeSTIN/160424_VerilogTrial/cordic_div_small.v
+L0 1
+Z7 OL;L;10.2c;57
+Z8 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z9 !s100 MT6jHC]BUdR@2DTlziY1@1
+Z10 !s90 -reportprogress|300|-work|work|E:/DeSTIN/160424_VerilogTrial/cordic_div_small.v|
+Z11 !s108 1463400676.780000
+Z12 !s107 E:/DeSTIN/160424_VerilogTrial/cordic_div_small.v|
+!s85 0
+!i10b 1
+!i111 0
+vfixed_width_multiply_16bits
+R1
+r1
+31
+Z13 I1IK^7Ro]>hL7eLR8S[bFB1
+R3
+Z14 w1463469829
+Z15 8E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply.v
+Z16 FE:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply.v
+L0 1
+R7
+R8
+Z17 !s100 Bie3hXLjMhQz<AW80_mS73
+Z18 !s108 1463469880.917000
+Z19 !s107 E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply.v|
+Z20 !s90 -reportprogress|300|-work|work|E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply.v|
+!s85 0
+!i10b 1
+!i111 0
+vmultiplier_test
+R1
+r1
+31
+Z21 IHBnAQE0ajacD:HZDk13Q12
+R3
+Z22 w1463469852
+Z23 8E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply_test.v
+Z24 FE:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply_test.v
+L0 3
+R7
+R8
+Z25 !s100 SL^mkVkA_6kPYLVlK`ngH0
+Z26 !s108 1463469883.756000
+Z27 !s107 E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply_test.v|
+Z28 !s90 -reportprogress|300|-work|work|E:/DeSTIN/160424_VerilogTrial/16bits_fixed_width_multiply_test.v|
+!s85 0
+!i10b 1
+!i111 0
+vneuronunit
+!s110 1463471927
+!i10b 1
+!s100 F1dT5TK1HfHD]@[lMBNd90
+IZWRDIRQU1dT?^kA]JKPRg3
+R1
+R3
+w1463471837
+Z29 8E:/DeSTIN/160424_VerilogTrial/neuronunit.v
+Z30 FE:/DeSTIN/160424_VerilogTrial/neuronunit.v
+L0 3
+R7
+r1
+!s85 0
+31
+!s108 1463471927.734000
+!s107 E:/DeSTIN/160424_VerilogTrial/neuronunit.v|
+Z31 !s90 -reportprogress|300|-work|work|E:/DeSTIN/160424_VerilogTrial/neuronunit.v|
+!i111 0
+R8
+vneuronunit_test
+R1
+r1
+31
+Z32 I]LVkEV^b3@@c<<H@1DLHm3
+R3
+Z33 w1463399760
+Z34 8E:/DeSTIN/160424_VerilogTrial/NeuronUnit_Test.v
+Z35 FE:/DeSTIN/160424_VerilogTrial/NeuronUnit_Test.v
+L0 3
+R7
+R8
+Z36 !s100 >ik]lB0@NT?OgLP^@kLFV2
+Z37 !s90 -reportprogress|300|-work|work|E:/DeSTIN/160424_VerilogTrial/NeuronUnit_Test.v|
+Z38 !s108 1463400682.797000
+Z39 !s107 E:/DeSTIN/160424_VerilogTrial/NeuronUnit_Test.v|
+!s85 0
+!i10b 1
+!i111 0

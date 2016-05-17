@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 
-module neuronunit(dist, norm_dist, divider_flag, in, mu_ini, sigma2_ini, en_input, en_renew, en_divide, renew_flag, ini_para, clk, rst)
+module neuronunit(dist, norm_dist, divider_flag, in, mu_ini, sigma2_ini, en_input, en_renew, en_divide, renew_flag, ini_para, clk, rst);
   output signed [15:0] dist;
   output signed [15:0] norm_dist;
   output divider_flag; //divider_flag
@@ -20,9 +20,9 @@ module neuronunit(dist, norm_dist, divider_flag, in, mu_ini, sigma2_ini, en_inpu
   reg signed [15:0] sigma2;
   reg signed [15:0] diff_reg;
   reg signed [15:0] diff2_reg;
-  reg signed [15:0] dist;
-  reg signed [15:0] norm_dist;
-  reg divider_flag; //divider flag
+  //reg signed [15:0] dist;
+  //reg signed [15:0] norm_dist;
+  //reg divider_flag; //divider flag
   
   wire signed [15:0] diff;
   wire signed [15:0] diff2;
@@ -30,27 +30,31 @@ module neuronunit(dist, norm_dist, divider_flag, in, mu_ini, sigma2_ini, en_inpu
   wire signed [15:0] sigma20;
   wire signed [15:0] mu_new;
   wire signed [15:0] sigma2_new;
+  wire signed  [15:0] diff2_diff; //diff2_reg - sigma2
+  wire divider_flag;
   
   //mu,sigma2 data input control
   assign mu0 = ini_para? mu_ini : mu_new;
-  assign sigma20 = ini_para? sigma2_ini ; sigma2_new;
+  assign sigma20 = ini_para? sigma2_ini : sigma2_new;
   
   //pure logical calculation
   assign diff = in_reg - mu;
-  assign diff2 = diff * diff;
   assign dist = diff2;
+  //pure logical multiplier
+  fixed_width_multiply_16bits multiplier(.a(diff), .b(diff), .c(diff2));
   
   //renew rule execution
-  assign mu_new = renew_flag? (mu + (diff_reg>>3)) : mu;
-  assign sigma2_new = renew_flag? (sigma2 + (diff2_reg - sigma2)>>3)) : sigma2;
+  assign mu_new = renew_flag? (mu + (diff_reg >>> 3 )) : mu;
+  assign diff2_diff = diff2_reg - sigma2;
+  assign sigma2_new = renew_flag? (sigma2 + diff2_diff >>> 3 ) : sigma2;
   
   //examplify the divider
-  cordic_div divider(.cordic_div_flag(divider_flag),.quotient(norm_dist),.divident(diff2_reg),.division(sigma2),.clk(clk),.rst(rst),.cordic_div_en(en_divide));
+  cordic_div_smaller divider(.cordic_div_flag(divider_flag),.quotient(norm_dist),.dividend(diff2_reg),.division(sigma2),.clk(clk),.rst(rst),.cordic_div_en(en_divide));
   
   //register transition description
   always @(posedge clk or posedge rst)
   begin
-    if (rst) begin in_reg = 16'd0; mu = 16'd0; sigma2 = 16'd0; diff_reg = 16'd0; diff2_reg = 16'd0; norm_dist = 16'd0; eninput = 0; end
+    if (rst) begin in_reg = 16'd0; mu = 16'd0; sigma2 = 16'd0; diff_reg = 16'd0; diff2_reg = 16'd0; /*divider_flag = 0; norm_dist = 16'd0;*/ end
     else
       begin
         //diff,diff2 to register
@@ -61,11 +65,10 @@ module neuronunit(dist, norm_dist, divider_flag, in, mu_ini, sigma2_ini, en_inpu
         if (en_input) in_reg <= in;
         
         //mu sigma2 register renew
-        if (en_renew) begin mu <= mu0; sigma2 <= sigma20; end
+        if (en_renew || ini_para) begin mu <= mu0; sigma2 <= sigma20; end
       end
-    end
   end
-end module
+endmodule
 
 
 

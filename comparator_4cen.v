@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 
-module comparator_4cen_16bit(arg, c, a_00, a_01, a_10, a_11)
+module comparator_4cen_16bit(arg, c, a_00, a_01, a_10, a_11);
   output [1:0] arg;
   output [15:0] c;
   input [15:0] a_00;

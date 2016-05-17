@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 
-module comparator_8cen_16bit(d, arg, a_000, a_001, a_010, a_011, a_100, a_101, a_110, a_111)
+module comparator_8cen_16bit(d, arg, a_000, a_001, a_010, a_011, a_100, a_101, a_110, a_111);
   output [15:0] d;
   output [2:0] arg;
   input [15:0] a_000;
